@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.atlas.cmdb.dao.ServerDAO">
+
+    <resultMap id="ServerMapping" type="com.atlas.cmdb.dto.ServerDTO">
+        <!-- id属性来映射主键字段 -->
+        <id column="id" property="id" javaType="String"/>
+
+        <!-- result属性映射非主键字段 -->
+        <result column="id" property="id" javaType="String"/>
+        <result column="hostname" property="hostname" javaType="String"/>
+        <result column="ip" property="ip" javaType="String"/>
+        <result column="ipv6" property="ipv6" javaType="String"/>
+<!--        <result column="network_domain_id" property="networkDomainId" javaType="String"/>-->
+<!--        <result column="server_group_id" property="serverGroupId" javaType="String"/>-->
+
+
+    </resultMap>
+
+    <select id="getAllServers" parameterType="String" resultMap="ServerMapping">
+        select * from cmdb_server
+    </select>
+
+<!--    <select id="findUserByEmail" parameterType="String" resultMap="UserMapping">-->
+<!--        SELECT * FROM oauth_user-->
+<!--        WHERE mail_address=#{1}-->
+<!--    </select>-->
+
+
+<!--    <select id="countUserByName" parameterType="String" resultType="int">-->
+<!--        SELECT count(*) FROM oauth_user-->
+<!--        WHERE user_name=#{1}-->
+<!--    </select>-->
+
+
+    <!--<update id="updateUserByUsername" parameterMap="user">-->
+    <!--UPDATE permission_user SET USER_PASSWORD=#{user_password} WHERE USER_NAME=#{user_name}-->
+    <!--</update>-->
+
+<!--    <delete id="deleteUserByUsername" parameterType="String">-->
+<!--        DELETE FROM oauth_user WHERE USER_NAME=#{1}-->
+<!--    </delete>-->
+
+    <!-- 使用alias自定义的parameterType-->
+    <!--<insert id="saveUser" parameterMap="user">-->
+    <!--INSERT INTO permission_user (user_password,user_name) VALUES (#{user_password},#{user_name})-->
+    <!--</insert>-->
+
+<!--    <select id="getAllUsers" resultMap="UserMapping">-->
+<!--        SELECT  * FROM oauth_user-->
+<!--    </select>-->
+
+<!--    <insert id="saveUser" parameterType="com.atlas.OAuth.dto.OauthUserDTO">-->
+<!--        insert into oauth_user(id,avatar,first_name,last_name,is_enabled,mail_address,user_name,password,created_date,updated_date)-->
+<!--        values (-->
+<!--        #{id},-->
+<!--        #{avatar},-->
+<!--        #{firstName},-->
+<!--        #{lastName},-->
+<!--        #{enabled},-->
+<!--        #{mailAddress},-->
+<!--        #{username},-->
+<!--        #{password},-->
+<!--        #{createdDate},-->
+<!--        #{updatedDate}-->
+<!--        )-->
+<!--        <selectKey keyColumn="id" resultType="String" keyProperty="id" order="AFTER">-->
+<!--            select last_insert_id()-->
+<!--        </selectKey>-->
+<!--    </insert>-->
+
+</mapper>
